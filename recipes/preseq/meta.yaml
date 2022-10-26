@@ -1,4 +1,4 @@
-{% set version = "3.2.0" %}
+{% set version = "3.1.2" %}
 
 package:
   name: preseq
@@ -9,7 +9,7 @@ build:
 
 source:
   url: https://github.com/smithlabcode/preseq/releases/download/v{{ version }}/preseq-{{ version }}.tar.gz
-  sha256: 95b81c9054e0d651de398585c7e96b807ad98f0bdc541b3e46665febbe2134d9
+  sha256: ed5176eb638e709bd22c0a43cedae5a2a3fcece40f6c130c509fbce6a59fa788
 
 requirements:
   build:
@@ -27,7 +27,6 @@ requirements:
 about:
   home: https://github.com/smithlabcode/preseq
   license: GPL-3.0-or-later
-  license_file: LICENSE
   summary: |
     predicting library complexity and genome coverage in high-throughput sequencing
   doc_url: 'https://preseq.readthedocs.io/'
