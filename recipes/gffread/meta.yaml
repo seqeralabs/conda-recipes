@@ -1,5 +1,5 @@
 {% set name = "gffread" %}
-{% set version = "0.12.7" %}
+{% set version = "0.12.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/gpertea/gffread/releases/download/v{{ version }}/gffread-{{ version }}.tar.gz
-    sha256: bfde1c857495e578f5b3af3c007a9aa40593e69450eafcc6a42c3e8ef08ed1f5
+    sha256: 796f924385e73a5b06bfaf35e35618c9101eda1a901d82d84a11cb5e608163a0
     patches:
       - Makefile.patch
 
