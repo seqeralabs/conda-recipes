@@ -1,0 +1,47 @@
+{% set name = "xopen" %}
+{% set version = "1.6.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 72219a4d690e9c90ad445c45d2119ae2a6d5d38912255631e227aceac6294353
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python
+    - pytest
+    - setuptools_scm
+  run:
+    - python
+    - python-isal >=1.0.1  # [python_impl != 'pypy']
+    # python-isal only has been build for pypy3.7 as of this moment.
+    - python-isal >=1.0.1  # [python_impl == 'pypy' and py>=37 and linux]
+    - isa-l >=2.30  # [unix]
+    - pigz
+    - pbzip2  # [unix]
+
+test:
+  imports:
+    - xopen
+
+about:
+  home: https://github.com/pycompression/xopen/
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Open compressed files transparently in Python
+  doc_url: https://github.com/pycompression/xopen/
+  dev_url: https://github.com/pycompression/xopen/
+
+extra:
+  recipe-maintainers:
+    - marcelm
+    - rhpvorderman
