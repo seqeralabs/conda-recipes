@@ -1,0 +1,66 @@
+{% set version = "2.30.0" %}
+
+package:
+  name: isa-l
+  version: {{ version }}
+
+source:
+  url: https://github.com/intel/isa-l/archive/v{{ version }}.tar.gz
+  sha256: bcf592c04fdfa19e723d2adf53d3e0f4efd5b956bb618fed54a1108d76a6eb56
+  patches:
+        # Conda adds some CFLAGS to the environment which are not properly 
+        # filtered by the original nasm-filter.sh
+        # This patch also makes sure the nasm executable from the BUILD_PREFIX is used.
+    - nasm-filter.patch
+
+build:
+  number: 4
+
+
+requirements:
+  build:
+    # igzip needs to be compiled with 7.5.0 to prevent an issue:
+    # https://github.com/conda-forge/isa-l-feedstock/issues/7
+    - {{ compiler('c') }}
+    - nasm  # [not osx]
+    # Osx needs some flags that are available from 2.14 on
+    - nasm >=2.14  # [osx]
+    - autoconf  # [unix]
+    - automake  # [unix]
+    - libtool   # [unix]
+    - make      # [unix]
+
+test:
+  files:
+    - LICENSE
+  commands:
+    - igzip --help  # [unix]
+        # Test compression and decompression. 
+    - igzip -k LICENSE  # [unix]
+        # Original file should be larger than compressed file.
+    - bash -c '[ $(stat -c %s LICENSE) -gt $(stat -c %s LICENSE.gz) ]'  # [unix]
+    - bash -c '[ "$(igzip -cd LICENSE.gz)" == "$(cat LICENSE)" ]'  # [unix]
+
+about:
+  home: https://software.intel.com/content/www/us/en/develop/tools/isa-l.html
+  license: BSD-3-Clause
+  summary: provides tools to minimize disk space use and maximize storage throughput, security, and resilience.
+  license_family: BSD
+  license_file: LICENSE
+
+  description: |
+    ISA-L is a collection of optimized low-level functions targeting storage applications. ISA-L includes:
+    Erasure codes - Fast block Reed-Solomon type erasure codes for any encode/decode matrix in GF(2^8).
+    CRC - Fast implementations of cyclic redundancy check. Six different polynomials supported.
+        iscsi32, ieee32, t10dif, ecma64, iso64, jones64.
+    Raid - calculate and operate on XOR and P+Q parity found in common RAID implementations.
+    Compression - Fast deflate-compatible data compression.
+    De-compression - Fast inflate-compatible data compression.
+    This package includes the igzip program on Linux and MacOS.
+
+  doc_url: https://github.com/intel/isa-l/wiki/
+  dev_url: https://github.com/intel/isa-l
+
+extra:
+  recipe-maintainers:
+    - rhpvorderman
