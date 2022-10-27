@@ -9,6 +9,14 @@ source:
   url: https://github.com/alexdobin/STAR/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }} 11
+    - make
+  host:
+    - zlib
+
 build:
   number: 0
 
