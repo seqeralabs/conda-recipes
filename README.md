@@ -37,6 +37,7 @@ cd recipes/pbzip2
 conda build .
 ```
 
-
-
-
+(this command might be useful if the selected machine is limited in disk space)
+```
+rm -fr ~/anaconda3/conda-bld/*; conda build .
+```
