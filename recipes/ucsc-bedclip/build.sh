@@ -2,6 +2,8 @@
 
 mkdir -p "$PREFIX/bin"
 export BINDIR=$(pwd)/bin
+export CFLAGS+=" -O3 -mcpu=neoverse-n1 "
+export CPPFLAGS+=" -O3 -mcpu=neoverse-n1 "
 mkdir -p "$BINDIR"
 
 export L="${LDFLAGS}"
