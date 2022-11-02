@@ -1,0 +1,53 @@
+# This file created by conda-build 3.18.9
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Mon Aug 19 22:57:01 2019
+# ------------------------------------------------
+
+package:
+    name: r-base
+    version: 3.5.1
+source:
+    sha256: 0463bff5eea0f3d93fa071f79c18d0993878fd4f2e18ae6cf22c1639d11457ed
+    url: https://cran.r-project.org/src/base/R-3/R-3.5.1.tar.gz
+    patch:
+      - 0010-javareconf-Do-not-fail-on-compile-fail.patch
+      - 0012-javareconf-macOS-Continue-to-allow-system-Java-lt-9-.patch
+      - 0017-Check-for-changes-then-forcibly-mv-in-javareconf.in.patch
+build:
+    detect_binary_files_with_prefix: true
+    ignore_run_exports:
+        - libgcc-ng
+        - libopenblas
+    no_link:
+        - lib/R/etc/Makeconf
+        - lib/R/etc/javaconf
+        - lib/R/etc/ldpaths
+        - lib/R/etc/x64/Makeconf
+        - lib/R/etc/x64/javaconf
+        - lib/R/etc/x64/ldpaths
+    number: '1011'
+    rpaths:
+        - lib/
+        - lib/R/lib/
+    string: hbc19587_1011
+requirements:
+    build:
+        - {{ compiler('c') }} 8
+        - {{ compiler('fortran') }}
+        - autoconf
+        - automake
+        - pcre 8.41 hf484d3e_1003
+        - zlib 1.2.11 h516909a_1005
+    host:
+        - readline
+        - zlib 1.2.11 h516909a_1005
+        - xz
+        - pcre 8.41 hf484d3e_1003
+        - bzip2 1.0.8 h516909a_0
+        - libcurl 7.64.1 hda55be3_0
+    run:
+about:
+    home: http://www.r-project.org/
+    license: GPL-3.0
+    license_family: GPL
+    summary: R is a free software environment for statistical computing and graphics.
