@@ -34,6 +34,7 @@ requirements:
     build:
         - {{ compiler('c') }} 8
         - {{ compiler('fortran') }}
+        - make
         - autoconf
         - automake
         - pcre 8.41 hf484d3e_1003
@@ -45,6 +46,8 @@ requirements:
         - pcre 8.41 hf484d3e_1003
         - bzip2 1.0.8 h516909a_0
         - libcurl 7.64.1 hda55be3_0
+        - libpng
+        - jpeg
     run:
 about:
     home: http://www.r-project.org/
