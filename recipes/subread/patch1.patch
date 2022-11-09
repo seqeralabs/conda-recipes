@@ -1,0 +1,22 @@
+--- ./src/Makefile.Linux.old	2022-10-28 13:05:04.775551463 +0000
++++ ./src/Makefile.Linux	2022-10-28 13:05:47.359213037 +0000
+@@ -7,7 +7,7 @@
+ include makefile.version
+ -include ~/.R/DBPZ_debug_makefile
+ 
+-CCFLAGS = -mtune=core2 ${MACOS} -O${OPT_LEVEL} -DMAKE_FOR_EXON  -D MAKE_STANDALONE -D SUBREAD_VERSION=\"${SUBREAD_VERSION}\"  -D_FILE_OFFSET_BITS=64 ${WARNING_LEVEL} 
++CCFLAGS = ${MACOS} -O${OPT_LEVEL} -DMAKE_FOR_EXON  -D MAKE_STANDALONE -D SUBREAD_VERSION=\"${SUBREAD_VERSION}\"  -D_FILE_OFFSET_BITS=64 ${WARNING_LEVEL} ${CFLAGS}
+ LDFLAGS = ${STATIC_MAKE} -pthread -lz ${MACOS} -O${OPT_LEVEL} -DMAKE_FOR_EXON -D MAKE_STANDALONE -lm
+ CC = ${CC_EXEC}  ${CCFLAGS}  -fmessage-length=0  -ggdb 
+ 
+--- ./src/longread-one/Makefile.old	2022-10-28 13:05:22.259412678 +0000
++++ ./src/longread-one/Makefile	2022-10-28 13:05:52.759170194 +0000
+@@ -4,7 +4,7 @@
+ include ../makefile.version
+ include make.version
+ 
+-CCFLAGS = -mtune=core2 ${MACOS} -O${OPT_LEVEL} -Wall  -DMAKE_FOR_EXON  -D MAKE_STANDALONE  -D_FILE_OFFSET_BITS=64 -DSUBREAD_VERSION=\"${SUBREAD_VERSION}\" ${WARNING_LEVEL} ${MINGW32}
++CCFLAGS = ${MACOS} -O${OPT_LEVEL} -Wall  -DMAKE_FOR_EXON  -D MAKE_STANDALONE  -D_FILE_OFFSET_BITS=64 -DSUBREAD_VERSION=\"${SUBREAD_VERSION}\" ${WARNING_LEVEL} ${MINGW32} ${CFLAGS}
+ LDFLAGS =  -lpthread -lz -lm -O${OPT_LEVEL} -DMAKE_FOR_EXON -D MAKE_STANDALONE # -DREPORT_ALL_THE_BEST
+ CC = ${CC_EXEC}  ${CCFLAGS}  -fmessage-length=0  -ggdb
+ 

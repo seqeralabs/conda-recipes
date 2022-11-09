@@ -1,0 +1,59 @@
+# This file created by conda-build 3.21.8
+# meta.yaml template originally from:
+# /opt/recipe, last modified Tue Mar  1 23:46:40 2022
+# ------------------------------------------------
+
+package:
+  name: subread
+  version: 2.0.1
+source:
+  sha256: d808eb5b1823c572cb45a97c95a3c5acb3d8e29aa47ec74e3ca1eb345787c17b
+  url: https://downloads.sourceforge.net/project/subread/subread-2.0.1/subread-2.0.1-source.tar.gz
+  patches:
+    - patch1.patch
+    - patch2.patch
+build:
+  number: '2'
+  string: h7132678_2
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - _libgcc_mutex
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng
+    - libgomp
+    - make
+  host:
+    - _libgcc_mutex
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng
+    - libgomp
+    - libzlib
+    - zlib
+  run:
+    - libgcc-ng
+    - libzlib
+    - zlib
+test:
+  commands:
+    - featureCounts -v
+    - subread-align || [[ $? == 1 ]]
+    - exactSNP
+    - subjunc || [[ $? == 1 ]]
+    - subindel || [[ $? = 255 ]]
+    - repair -h
+    - txUnique || [[ $? == 1 ]]
+    - qualityScores
+    - subread-buildindex || [[ $? == 255 ]]
+    - subread-fullscan || [[ $? == 255 ]]
+about:
+  home: http://subread.sourceforge.net/
+  license: GPLv3
+  summary: High-performance read alignment, quantification, and mutation discovery
+extra:
+  copy_test_source_files: true
+  final: true
+  identifiers:
+    - biotools:subread
+    - doi:10.1093/nar/gkt214
+    - usegalaxy-eu:featurecounts

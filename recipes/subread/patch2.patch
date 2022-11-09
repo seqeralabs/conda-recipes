@@ -1,0 +1,22 @@
+--- ./src/index-builder.c.old	2022-11-09 10:18:11.713472000 +0000
++++ ./src/index-builder.c	2022-11-09 10:18:38.165154375 +0000
+@@ -1032,7 +1032,7 @@
+ 
+ 	optind = 0;
+ 	
+-	while ((c = getopt_long (argc, argv, "kvcBFM:o:f:Db?", ib_long_options, &optindex)) != -1)
++	while ((c = getopt_long (argc, argv, "kvcBFM:o:f:Db?", ib_long_options, &optindex)) != 255)
+ 		switch(c)
+ 		{
+ 			case 'b':
+--- ./src/fullscan.c.old	2022-11-09 10:31:46.315688573 +0000
++++ ./src/fullscan.c	2022-11-09 10:32:04.471470495 +0000
+@@ -162,7 +162,7 @@
+ 
+ 	index_name[0]=0;
+ 
+-	while ((c = getopt (argc, argv, "i:m:c:?")) != -1)
++	while ((c = getopt (argc, argv, "i:m:c:?")) != 255)
+ 		switch(c)
+ 		{
+ 			case 'i':
