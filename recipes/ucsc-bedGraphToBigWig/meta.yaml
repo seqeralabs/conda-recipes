@@ -27,12 +27,10 @@ requirements:
         - mysql 5.7
         - zlib
         - openssl 1.1
+test:
+  commands:
+    - bedGraphToBigWig 2> /dev/null || [[ "$?" == 255 ]]
 about:
     home: "http://hgdownload.cse.ucsc.edu/admin/exe/"
     license: "varies; see http://genome.ucsc.edu/license"
     summary: "Remove lines from bed file that refer to off-chromosome places."
-
-
-
-
-

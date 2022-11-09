@@ -1,2 +1,2 @@
 #!/bin/bash
-bedClip 2> /dev/null || [[ "$?" == 255 ]]
+bedGraphToBigWig 2> /dev/null || [[ "$?" == 255 ]]
