@@ -11,6 +11,7 @@ source:
   url: https://downloads.sourceforge.net/project/subread/subread-2.0.1/subread-2.0.1-source.tar.gz
   patches:
     - patch1.patch
+    - patch2.patch
 build:
   number: '2'
   string: h7132678_2
@@ -43,6 +44,8 @@ test:
     - repair -h
     - txUnique || [[ $? == 1 ]]
     - qualityScores
+    - subread-buildindex || [[ $? == 255 ]]
+    - subread-fullscan || [[ $? == 255 ]]
 about:
   home: http://subread.sourceforge.net/
   license: GPLv3
