@@ -9,11 +9,11 @@
 -    vfprintf(stdout, format, args);
 -    fprintf(stdout, "\n");
 -    }
-+//if (format != NULL && args != NULL)
-+//    {
-+//    vfprintf(stdout, format, args);
-+//    fprintf(stdout, "\n");
-+//    }
++if (format != NULL)
++    {
++    vfprintf(stdout, format, args);
++    fprintf(stdout, "\n");
++    }
  exit(-1);
  }
  

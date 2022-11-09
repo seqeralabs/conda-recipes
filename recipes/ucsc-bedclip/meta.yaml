@@ -7,25 +7,26 @@ source:
     md5: "30ce911f0935307c810d3b795b985b63"                                                    # [linux]
     patches:
       - patch1.patch
+      - include.patch
 
-build:                                                                                       # [osx]
+build:
     number: 1
 
 requirements:
     build:
         - {{ compiler('c') }} 8
         - make
-        - libpng 1.6                                             # [linux]
-        - mysql 5.7                                                 # [linux]
+        - libpng 1.6
+        - mysql 5.7
     host:
-        - zlib                                                      # [linux]
-        - openssl 1.1                                             # [linux]
+        - zlib
+        - openssl 1.1
         - libuuid 2.32
-    run:                                                            # [linux]
-        - libpng 1.6                                             # [linux]
-        - mysql 5.7                                                 # [linux]
-        - zlib                                                      # [linux]
-        - openssl 1.1                                             # [linux]
+    run:
+        - libpng 1.6
+        - mysql 5.7
+        - zlib
+        - openssl 1.1
 about:
     home: "http://hgdownload.cse.ucsc.edu/admin/exe/"
     license: "varies; see http://genome.ucsc.edu/license"
