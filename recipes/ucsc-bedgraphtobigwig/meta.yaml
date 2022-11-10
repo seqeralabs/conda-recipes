@@ -3,7 +3,7 @@
 
 package:
     name: "ucsc-bedgraphtobigwig"
-    version: "377"
+    version: {{ version }}
 source:
     url: http://hgdownload.cse.ucsc.edu/admin/exe/userApps.archive/userApps.v{{ version }}.src.tgz
     fn: "userApps.src.tgz"
