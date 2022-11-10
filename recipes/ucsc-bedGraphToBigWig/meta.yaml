@@ -1,10 +1,13 @@
+{% set version = "377" %}
+{% set md5 = "30ce911f0935307c810d3b795b985b63" %}
+
 package:
-    name: "ucsc-bedclip"
+    name: "ucsc-bedgraphtobigwig"
     version: "377"
 source:
-    url: "http://hgdownload.cse.ucsc.edu/admin/exe/userApps.archive/userApps.v377.src.tgz"                # [linux]
-    fn: "userApps.src.tgz"                                                                     # [linux]
-    md5: "30ce911f0935307c810d3b795b985b63"                                                    # [linux]
+    url: http://hgdownload.cse.ucsc.edu/admin/exe/userApps.archive/userApps.v{{ version }}.src.tgz
+    fn: "userApps.src.tgz"
+    md5: {{ md5 }}
     patches:
       - patch1.patch
       - include.patch
@@ -17,14 +20,14 @@ requirements:
         - {{ compiler('c') }} 8
         - make
         - libpng 1.6
-        - mysql 5.7
+        - mysql-connector-c
     host:
         - zlib
         - openssl 1.1
         - libuuid 2.32
     run:
         - libpng 1.6
-        - mysql 5.7
+        - mysql-connector-c
         - zlib
         - openssl 1.1
 test:
