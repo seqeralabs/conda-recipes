@@ -1,0 +1,39 @@
+{% set version = "377" %}
+{% set md5 = "30ce911f0935307c810d3b795b985b63" %}
+
+package:
+    name: "ucsc-bedgraphtobigwig"
+    version: {{ version }}
+source:
+    url: http://hgdownload.cse.ucsc.edu/admin/exe/userApps.archive/userApps.v{{ version }}.src.tgz
+    fn: "userApps.src.tgz"
+    md5: {{ md5 }}
+    patches:
+      - patch1.patch
+      - include.patch
+
+build:
+    number: 1
+
+requirements:
+    build:
+        - {{ compiler('c') }} 8
+        - make
+        - libpng 1.6
+        - mysql-connector-c
+    host:
+        - zlib
+        - openssl 1.1
+        - libuuid 2.32
+    run:
+        - libpng 1.6
+        - mysql-connector-c
+        - zlib
+        - openssl 1.1
+test:
+  commands:
+    - bedGraphToBigWig 2> /dev/null || [[ "$?" == 255 ]]
+about:
+    home: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+    license: "varies; see http://genome.ucsc.edu/license"
+    summary: "Remove lines from bed file that refer to off-chromosome places."
