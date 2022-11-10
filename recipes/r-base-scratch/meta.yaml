@@ -26,9 +26,6 @@ build:
         - lib/R/etc/x64/javaconf
         - lib/R/etc/x64/ldpaths
     number: '1011'
-    rpaths:
-        - lib/
-        - lib/R/lib/
     string: hbc19587_1011
 requirements:
     build:
@@ -39,6 +36,7 @@ requirements:
         - automake
         - pcre 8.41 hf484d3e_1003
         - zlib 1.2.11 h516909a_1005
+        - libiconv
     host:
         - readline
         - zlib 1.2.11 h516909a_1005
@@ -47,8 +45,23 @@ requirements:
         - bzip2 1.0.8 h516909a_0
         - libcurl 7.64.1 hda55be3_0
         - libpng
-        - jpeg
+        - jpeg 9c
     run:
+        - pcre 8.41 hf484d3e_1003
+        - libiconv
+        - icu 67.1
+        - jpeg 9c
+test:
+    requires:
+        - pcre 8.41 hf484d3e_1003
+        - libiconv
+        - icu 67.1
+        - jpeg 9c
+    commands:
+        - R -h
+        - LD_LIBRARY_PATH=$PREFIX/lib R --version
+        - LD_LIBRARY_PATH=$PREFIX/lib Rscript --version
+        - LD_LIBRARY_PATH=$PREFIX/lib Rscript -e  'cat("ok\\n")'
 about:
     home: http://www.r-project.org/
     license: GPL-3.0
