@@ -20,10 +20,10 @@ build:
 # Suggests: sparseMatrixStats, DelayedMatrixStats, SummarizedExperiment, testthat (>= 2.1.0)
 requirements:
   host:
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
     - 'r-matrixstats >=0.60.1'
   run:
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
     - 'r-matrixstats >=0.60.1'
 test:
   commands:

@@ -20,9 +20,9 @@ build:
 # Suggests: Biobase, S4Vectors, IRanges, GenomicRanges, DelayedArray, Biostrings, Rsamtools, AnnotationDbi, affy, affyPLM, DESeq2, flowClust, MSnbase, annotate, RUnit
 requirements:
   host:
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
   run:
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
 test:
   commands:
     - '$R -e "library(''{{ name }}'')"'

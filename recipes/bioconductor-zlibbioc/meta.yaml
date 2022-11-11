@@ -18,11 +18,11 @@ build:
     - lib/
 requirements:
   host:
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
     - libblas
     - liblapack
   run:
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
   build:
     - {{ compiler('c') }}
     - automake

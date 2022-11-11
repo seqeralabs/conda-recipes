@@ -20,12 +20,12 @@ build:
 requirements:
   host:
     - 'bioconductor-biocgenerics >=0.40.0,<0.41.0'
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
     - libblas
     - liblapack
   run:
     - 'bioconductor-biocgenerics >=0.40.0,<0.41.0'
-    - 'r-base >=4'
+    - 'r-base >=4.1,<4.2'
   build:
     - {{ compiler('c') }}
     - make
