@@ -1,0 +1,61 @@
+package:
+  name: r-digest
+  version: 0.6.30
+
+source:
+  url:
+    - {{ cran_mirror }}/src/contrib/digest_0.6.30.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/digest/digest_0.6.30.tar.gz
+  sha256: 7b8059943be7dba6053268dfcc229de1bb0b55db497b2943541a6abace076aa7
+
+build:
+  number: 0
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - 'r-base >=4.1,<4.2'
+  run:
+    - 'r-base >=4.1,<4.2'
+
+test:
+  commands:
+    - $R -e "library('digest')"
+
+about:
+  home: http://dirk.eddelbuettel.com/code/digest.html
+  license: GPL-2.0-or-later
+  summary: Implementation of a function 'digest()' for the creation of hash digests of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32', 'xxhash', 'murmurhash' and 'spookyhash' algorithms) permitting easy comparison of R language objects, as well as functions such as'hmac()' to create hash-based message
+    authentication code. Please note that this package is not meant to be deployed for cryptographic purposes for which more comprehensive (and widely tested) libraries such as 'OpenSSL' should be used.
+  license_family: GPL2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+
+extra:
+  recipe-maintainers:
+    - conda-forge/r
+    - ocefpaf
+
+# Package: digest
+# Author: Dirk Eddelbuettel <edd@debian.org> with contributions by Antoine Lucas, Jarek Tuszynski, Henrik Bengtsson, Simon Urbanek, Mario Frasca, Bryan Lewis, Murray Stokely, Hannes Muehleisen, Duncan Murdoch, Jim Hester, Wush Wu, Qiang Kou, Thierry Onkelinx, Michel Lang, Viliam Simko, Kurt Hornik, Radford Neal, Kendon Bell, and Matthew de Queljoe.
+# Version: 0.6.21
+# Date: 2019-09-19
+# Maintainer: Dirk Eddelbuettel <edd@debian.org>
+# Title: Create Compact Hash Digests of R Objects
+# Description: Implementation of a function 'digest()' for the creation of hash digests of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32', 'xxhash', 'murmurhash' and 'spookyhash' algorithms) permitting easy comparison of R language objects, as well as functions such as'hmac()' to create hash-based message authentication code. Please note that this package is not meant to be deployed for cryptographic purposes for which more comprehensive (and widely tested) libraries such as 'OpenSSL' should be used.
+# URL: http://dirk.eddelbuettel.com/code/digest.html
+# BugReports: https://github.com/eddelbuettel/digest/issues
+# Depends: R (>= 3.1.0)
+# License: GPL (>= 2)
+# Suggests: tinytest, knitr, rmarkdown
+# VignetteBuilder: knitr
+# NeedsCompilation: yes
+# Packaged: 2019-09-19 10:37:39.11891 UTC; edd
+# Repository: CRAN
+# Date/Publication: 2019-09-20 23:20:04 UTC
