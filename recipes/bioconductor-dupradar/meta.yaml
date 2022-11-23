@@ -22,9 +22,11 @@ requirements:
   host:
     - 'bioconductor-rsubread >=2.8.0,<2.9.0'
     - 'r-base >=4.1,<4.2'
+    - r-kernsmooth
   run:
     - 'bioconductor-rsubread >=2.8.0,<2.9.0'
     - 'r-base >=4.1,<4.2'
+    - r-kernsmooth
 test:
   commands:
     - '$R -e "library(''{{ name }}'')"'
