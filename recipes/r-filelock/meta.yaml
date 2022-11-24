@@ -1,0 +1,39 @@
+{% set version = '1.0.2' %}
+
+package:
+  name: r-filelock
+  version: {{ version|replace("-", "_") }}
+
+source:
+  url:
+    - https://cran.r-project.org/src/contrib/filelock_{{ version }}.tar.gz
+    - https://cran.r-project.org/src/contrib/Archive/filelock/filelock_{{ version }}.tar.gz
+  sha256: ac2915950789b16c43a625a2b8dab6ba423588db4a7d0daa75b74518b82b1403
+
+build:
+  number: 1003
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - make
+  host:
+    - 'r-base >=4.1,<4.2'
+  run:
+    - 'r-base >=4.1,<4.2'
+
+test:
+  commands:
+    - $R -e "library('filelock')"           
+
+about:
+  home: https://github.com/r-lib/filelock#readme
+  license: MIT
+  summary: Place an exclusive or shared lock on a file. It uses 'LockFile' on Windows and 'fcntl'
+    locks on Unix-like systems.
+  license_family: MIT
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+
