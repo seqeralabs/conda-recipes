@@ -1,0 +1,40 @@
+{% set version = "0.3-63" %}
+
+package:
+  name: r-clue
+  version: {{ version|replace("-", "_") }}
+
+source:
+  url:
+    - {{ cran_mirror }}/src/contrib/clue_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/clue/clue_{{ version }}.tar.gz
+  sha256: d913283c258a74bfdf95fb4c82b55d548829b0d650ce6824689d853c96138030
+
+build:
+  number: 0
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  build:
+    - {{ compiler('c') }}            
+    - make
+  host:
+    - 'r-base >=4.1,<4.2'
+    - r-cluster
+  run:
+    - 'r-base >=4.1,<4.2'
+    - r-cluster
+
+test:
+  commands:
+    - $R -e "library('clue')"
+
+about:
+  home: https://CRAN.R-project.org/package=clue
+  license: GPL-2.0-only
+  summary: CLUster Ensembles.
+  license_family: GPL2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
