@@ -38,7 +38,3 @@ about:
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
-
-extra:
-  recipe-maintainers:
-    - conda-forge/r
