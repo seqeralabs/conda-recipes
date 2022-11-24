@@ -1,4 +1,4 @@
-{% set version = "2.2.0" %}
+{% set version = "2.6.0" %}
 {% set name = "BiocFileCache" %}
 {% set bioc = "3.14" %}
 
@@ -7,10 +7,7 @@ package:
   version: '{{ version }}'
 source:
   url:
-    - 'https://bioconductor.org/packages/release/bioc/src/contrib/BiocFileCache_2.6.0.tar.gz'
-    - 'https://bioarchive.galaxyproject.org/BiocFileCache_2.6.0.tar.gz'
-    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/BiocFileCache_2.6.0.tar.gz'
-    - 'https://depot.galaxyproject.org/software/bioconductor-biocfilecache/bioconductor-biocfilecache_2.2.0_src_all.tar.gz'
+    - 'https://bioconductor.org/packages/release/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
   md5: 2a62b9140883f1ab01e9e18a24e535b7
 build:
   number: 0

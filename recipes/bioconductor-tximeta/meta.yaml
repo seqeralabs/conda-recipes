@@ -1,4 +1,4 @@
-{% set version = "1.12.0" %}
+{% set version = "1.12.4" %}
 {% set name = "tximeta" %}
 {% set bioc = "3.14" %}
 
@@ -7,7 +7,7 @@ package:
   version: '{{ version }}'
 source:
   url:
-    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/tximeta_1.12.4.tar.gz'
+    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
   md5: f0561894dbad7cdd72237b289e32dbdf
 build:
   number: 0

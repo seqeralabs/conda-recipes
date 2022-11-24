@@ -1,4 +1,4 @@
-{% set version = "2.18.1" %}
+{% set version = "2.18.4" %}
 {% set name = "ensembldb" %}
 {% set bioc = "3.14" %}
 
@@ -7,9 +7,7 @@ package:
   version: '{{ version }}'
 source:
   url:
-    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/ensembldb_2.18.4.tar.gz'
-    - 'https://bioarchive.galaxyproject.org/ensembldb_2.18.1.tar.gz'
-    - 'https://depot.galaxyproject.org/software/bioconductor-ensembldb/bioconductor-ensembldb_2.18.1_src_all.tar.gz'
+    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
   md5: 63a4974ec0cdf9d6301d26d20fec1a05
 build:
   number: 0

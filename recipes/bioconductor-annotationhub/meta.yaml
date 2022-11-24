@@ -1,4 +1,4 @@
-{% set version = "3.2.0" %}
+{% set version = "3.2.2" %}
 {% set name = "AnnotationHub" %}
 {% set bioc = "3.14" %}
 
@@ -7,7 +7,7 @@ package:
   version: '{{ version }}'
 source:
   url:
-    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/AnnotationHub_3.2.2.tar.gz'
+    - 'https://bioconductor.org/packages/3.14/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
   md5: 1504583a31b71617e95c9c1793ed90d6
 build:
   number: 0

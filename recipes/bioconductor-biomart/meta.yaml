@@ -1,4 +1,4 @@
-{% set version = "2.50.0" %}
+{% set version = "2.54.0" %}
 {% set name = "biomaRt" %}
 {% set bioc = "3.14" %}
 
@@ -7,7 +7,7 @@ package:
   version: '2.50.0'
 source:
   url:
-    - 'https://bioconductor.org/packages/release/bioc/src/contrib/biomaRt_2.54.0.tar.gz'
+    - 'https://bioconductor.org/packages/release/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
   md5: 72f4afffedb7c70fda011572e8a1687d
 build:
   number: 0
