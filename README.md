@@ -19,6 +19,7 @@ bash ./Anaconda3-2022.10-Linux-aarch64.sh
 ```bash
 conda config --system --add channels defaults
 conda config --system --add channels conda-forge
+conda config --system --add channels bioconda
 conda config --system --add channels seqera
 ```
 
