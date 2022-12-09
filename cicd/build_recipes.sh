@@ -1,5 +1,13 @@
 #!/bin/bash
 
+monitor_space(){
+    while true
+    do
+        df -h
+        sleep 10
+    done
+}
+
 setup_conda(){
     echo -e "\e[34m Setup conda \e[0m"
     (
@@ -22,6 +30,7 @@ build_recipe(){
 }
 
 
+monitor_space &
 [ -e ~/anaconda3 ] || setup_conda
 
 git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
