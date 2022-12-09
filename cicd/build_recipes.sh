@@ -21,6 +21,7 @@ setup_conda(){
     ~/anaconda3/bin/conda config --system --add channels conda-forge
     ~/anaconda3/bin/conda config --system --add channels bioconda
     ~/anaconda3/bin/conda config --system --add channels seqera
+    ~/anaconda3/bin/conda config --set anaconda_upload yes
     )
 }
 
@@ -39,5 +40,5 @@ do
 done
 
 # create key at https://anaconda.org/<user>/settings/access and put in the env_variable ANACONDA_API_TOKEN
-~/anaconda3/bin/anaconda upload --user seqera ~/anaconda3/conda-bld/linux-aarch64/*.tar.bz2
+#~/anaconda3/bin/anaconda upload --user seqera ~/anaconda3/conda-bld/linux-aarch64/*.tar.bz2
 
