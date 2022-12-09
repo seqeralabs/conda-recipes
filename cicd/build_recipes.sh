@@ -11,12 +11,13 @@ setup_conda(){
 
     ~/anaconda3/bin/conda config --system --add channels defaults
     ~/anaconda3/bin/conda config --system --add channels conda-forge
+    ~/anaconda3/bin/conda config --system --add channels bioconda
     ~/anaconda3/bin/conda config --system --add channels seqera
     )
 }
 
 build_recipe(){
-    echo -e "\e[34m Building recipe $line \e[0m"
+    echo -e "\e[34m Building recipe $1 \e[0m"
     (cd "recipes/$1"; ~/anaconda3/bin/conda build .)
 }
 
