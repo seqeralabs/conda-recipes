@@ -1,6 +1,9 @@
 #!/bin/bash
 
 setup_conda(){
+
+    sudo apt-get install -y build-essential
+
     echo -e "\e[34m Setup conda \e[0m"
     (
     curl -O https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-$(arch).sh
