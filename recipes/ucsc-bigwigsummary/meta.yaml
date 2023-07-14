@@ -24,16 +24,16 @@ requirements:
     - make
     - {{ compiler('c') }} 8
     - mysql-connector-c
-    - libpng
+    - libpng 1.6
   host:
     - zlib
-    - libuuid
-    - openssl
+    - libuuid 2.32
+    - openssl 1.1
 
   run:
-    - libpng
+    - libpng 1.6
     - libuuid
-    - openssl
+    - openssl 1.1
     - zlib
 
 test:
