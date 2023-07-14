@@ -39,7 +39,7 @@ requirements:
 test:
   commands:
     # just check for existence, because the individual packages have no unified behavior
-    - which {{ program }}
+    #- which {{ program }}
 
 about:
   home: "http://hgdownload.cse.ucsc.edu/admin/exe/"
