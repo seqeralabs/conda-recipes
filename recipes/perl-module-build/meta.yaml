@@ -34,9 +34,6 @@ test:
 about:
   home: https://github.com/Perl-Toolchain-Gang/Module-Build
   license: GPL-1.0-or-later OR Artistic-1.0-Perl
-  license_file:
-    - {{ environ["PREFIX"] }}/man/man1/perlartistic.1
-    - {{ environ["PREFIX"] }}/man/man1/perlgpl.1
   summary: Build and install Perl modules
 
 extra:
