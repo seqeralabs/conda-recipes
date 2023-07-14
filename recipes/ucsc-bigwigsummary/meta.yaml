@@ -45,3 +45,4 @@ about:
   home: "http://hgdownload.cse.ucsc.edu/admin/exe/"
   license: "varies; see http://genome.ucsc.edu/license"
   summary: "Extract summary information from a bigWig file."
+
