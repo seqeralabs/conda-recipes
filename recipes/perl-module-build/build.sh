@@ -3,7 +3,7 @@
 set -o errexit -o pipefail
 
 if [[ -f Makefile.PL ]]; then
-    perl Makefile.PL INSTALLDIRS=vendor INSTALL_BASE=vendor
+    perl Makefile.PL
     make
     make test
     make install
