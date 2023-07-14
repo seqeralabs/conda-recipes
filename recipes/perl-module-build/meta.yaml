@@ -1,0 +1,44 @@
+{% set name = "perl-module-build" %}
+{% set version = "0.4234" %}
+{% set sha256 = "66aeac6127418be5e471ead3744648c766bd01482825c5b66652675f2bc86a8f" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  skip: true  # [win]
+  number: 0
+  run_exports:
+    weak:
+      - {{ name }} ={{ version }}
+
+requirements:
+  build:
+    - make
+  host:
+    - perl =5.26.2
+    - perl-inc-latest
+  run:
+    - perl
+
+test:
+  imports:
+    - Module::Build
+
+about:
+  home: https://github.com/Perl-Toolchain-Gang/Module-Build
+  license: GPL-1.0-or-later OR Artistic-1.0-Perl
+  license_file:
+    - {{ environ["PREFIX"] }}/man/man1/perlartistic.1
+    - {{ environ["PREFIX"] }}/man/man1/perlgpl.1
+  summary: Build and install Perl modules
+
+extra:
+  recipe-maintainers:
+    - xileF1337
+    - conda-forge/perl-packagers
