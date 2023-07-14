@@ -22,9 +22,10 @@ requirements:
     - make
   host:
     - perl =5.26.2
-    - perl-inc-latest
+    - perl-inc-latest =0.500
   run:
-    - perl
+    - perl =5.26.2
+    - perl-inc-latest =0.500
 
 test:
   imports:
