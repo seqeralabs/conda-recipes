@@ -24,16 +24,16 @@ requirements:
     - {{ compiler('cxx') }}
     - ucsc-bigwigsummary
   host:
-    - perl =5.26.2
-    - perl-module-build =0.4234
-    - htslib =1.17
+    - perl
+    - perl-module-build
+    - htslib
   run:
-    - bioconductor-biobase =2.54.0
-    - bioconductor-ebseq =1.38.0
-    - perl =5.26.2
-    - perl-module-build =0.4234
-    - samtools =1.17
-    - htslib =1.17
+    - bioconductor-biobase
+    - bioconductor-ebseq
+    - perl
+    - perl-module-build
+    - samtools
+    - htslib
 
 test:
   commands:
