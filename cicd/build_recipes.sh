@@ -15,7 +15,7 @@ setup_conda(){
     ~/anaconda3/bin/conda config --system --add channels defaults
     ~/anaconda3/bin/conda config --system --add channels conda-forge
     ~/anaconda3/bin/conda config --system --add channels bioconda
-    ~/anaconda3/bin/conda config --system --add channels seqera
+    #~/anaconda3/bin/conda config --system --add channels seqera
     )
 }
 
