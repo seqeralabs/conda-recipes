@@ -49,6 +49,11 @@ cp ${RECIPE_DIR}/Build.PL perl-build
 cd perl-build
 # now run perl install
 echo "===== now run perl install ====="
+echo "===== 1 ====="
+cat  ./Build.PL
 perl ./Build.PL
+
+echo "===== 2 ====="
+cat  ./Build
 perl ./Build manifest
 perl ./Build install --installdirs site
