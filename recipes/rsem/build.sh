@@ -51,7 +51,7 @@ cd perl-build
 echo "===== now run perl install ====="
 echo "===== 1 ====="
 cat  ./Build.PL
-perl ./Build.PL
+perl -d:Trace ./Build.PL
 
 echo "===== 2 ====="
 cat  ./Build
