@@ -40,8 +40,8 @@ foreach my $file (@files){
 }
 
 my %module_build_args = (
-    "build_requires"     => { "Module::Build" => "0.28" },
-    "configure_requires" => { "Module::Build" => "0.28" },
+    "build_requires"     => { "Module::Build" => "0.4234" },
+    "configure_requires" => { "Module::Build" => "0.4234" },
     "dist_abstract"      => "Base Build Script for perl scripts",
     "dist_author"          => [ "" ],
     "dist_name"            => "BiocondaPerlExecs",
@@ -58,7 +58,7 @@ my %module_build_args = (
 );
 
 my %fallback_build_requires = (
-    "Module::Build" => "0.28",
+    "Module::Build" => "0.4234",
     "Test::More"    => 0,
     "strict"        => 0
 );
