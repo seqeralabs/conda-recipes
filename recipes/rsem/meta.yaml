@@ -22,7 +22,6 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - ucsc-bigwigsummary
   host:
     - perl =5.26.2
     - perl-module-build =0.4234
