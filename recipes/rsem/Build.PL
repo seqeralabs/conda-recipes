@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Module::Build 0.28;
+use Module::Build 0.4234;
 use File::Find;
 
 our @files = ();
