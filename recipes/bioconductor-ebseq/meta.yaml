@@ -45,4 +45,3 @@ extra:
     name: bioconductor-ebseq
     path: recipes/bioconductor-ebseq
     version: 1.20.0
-
