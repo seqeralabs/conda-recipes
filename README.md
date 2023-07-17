@@ -27,7 +27,7 @@ conda config --system --add channels seqera
 
 5. Setup your SSH keys and clone this repo
 ```bash
-git clone git@github.com:seqeralabs/eel-recipes.git
+git clone git@github.com:seqeralabs/conda-recipes.git
 ```
 
 ## Build a package using conda build
