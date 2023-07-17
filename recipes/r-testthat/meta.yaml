@@ -1,0 +1,42 @@
+# This file created by conda-build 2.0.7
+# meta.yaml template originally from:
+# /opt/recipe, last modified Sat Jun  3 21:05:01 2017
+# ------------------------------------------------
+
+package:
+    name: r-testthat
+    version: 1.0.2
+source:
+    fn: testthat_1.0.2.tar.gz
+    md5: 6c6a90c8db860292df5784a70e07b8dc
+    url:
+        - https://cran.r-project.org/src/contrib/testthat_1.0.2.tar.gz
+        - https://cran.r-project.org/src/contrib/Archive/testthat/testthat_1.0.2.tar.gz
+build:
+    number: '1'
+    rpaths:
+        - lib/R/lib/
+        - lib/
+requirements:
+    build:
+        - gcc
+        - 'r-base >=4.1,<4.2'
+        - r-crayon
+        - r-digest
+        - r-magrittr
+        - r-praise
+        - r-r6
+    run:
+        - 'r-base >=4.1,<4.2'
+        - r-crayon
+        - r-digest
+        - r-magrittr
+        - r-praise
+        - r-r6
+test:
+    commands:
+        - $R -e "library('testthat')"
+about:
+    home: https://github.com/hadley/testthat
+    license: MIT + file LICENSE
+    summary: A unit testing system designed to be fun, flexible and easy to set up.
