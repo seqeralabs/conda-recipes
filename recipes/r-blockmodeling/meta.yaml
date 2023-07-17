@@ -1,0 +1,35 @@
+# This file created by conda-build 2.0.7
+# meta.yaml template originally from:
+# /opt/recipe, last modified Sun Jun  4 01:06:53 2017
+# ------------------------------------------------
+
+package:
+    name: r-blockmodeling
+    version: 0.1.8
+source:
+    md5: 6662d5f25754f058e6954d25be85d56e
+    url: https://cran.r-project.org/src/contrib/Archive/blockmodeling/blockmodeling_0.1.8.tar.gz
+build:
+    number: '1'
+    rpaths:
+        - lib/R/lib/
+        - lib/
+requirements:
+    build:
+        - {{ compiler('c') }} 9
+        - {{ compiler('fortran') }} 9
+        - make
+    host:
+        - 'r-base >=4.1,<4.2'
+    run:
+        - 'r-base >=4.1,<4.2'
+test:
+    commands:
+        - $R -e "library('blockmodeling')"
+about:
+    home: https://cran.r-project.org/web/packages/blockmodeling/index.html
+    license: GPL (>= 2)
+    summary: The package is primarly ment as an implementation of Generalized blockmodeling
+        for valued networks. In addition, measurese of similarity or dissimilarity
+        based on structural equivalence and regular equivalence (REGE algorithem)
+        can be computed and partitioned matrices can be ploted.
