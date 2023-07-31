@@ -1,6 +1,8 @@
-# Eel recipes
+# Conda recipes arm64
 
-This project is a collection of [Conda](https://www.anaconda.com/products/distribution) recipes to build `aarch64` packages for common [**nf-core**](https://nf-co.re/) pipelines.
+This project is a collection of [Conda](https://docs.conda.io/en/latest/) recipes optimized for `arm64` CPU architecture, for tools mostly used by [**nf-core**](https://nf-co.re/) pipelines.
+
+Those recipes are made publicly available through [Seqera channel](https://anaconda.org/seqera) on Anaconda.org.
 
 ## Environment setup for building packages
 
@@ -25,7 +27,7 @@ conda config --system --add channels seqera
 
 5. Setup your SSH keys and clone this repo
 ```bash
-git clone git@github.com:seqeralabs/eel-recipes.git
+git clone git@github.com:seqeralabs/conda-recipes.git
 ```
 
 ## Build a package using conda build
@@ -37,7 +39,4 @@ Example:
 cd recipes/pbzip2
 conda build .
 ```
-
-
-
 

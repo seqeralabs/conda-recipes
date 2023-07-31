@@ -1,6 +1,6 @@
-{% set version = "1.30.0" %}
-{% set name = "dupRadar" %}
-{% set bioc = "3.14" %}
+{% set version = "1.38.0" %}
+{% set name = "EBSeq" %}
+{% set bioc = "3.16" %}
 
 package:
   name: 'bioconductor-{{ name|lower }}'
@@ -8,40 +8,41 @@ package:
 source:
   url:
     - 'https://bioconductor.org/packages/{{ bioc }}/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
+    - 'https://bioconductor.org/packages/{{ bioc }}/bioc/src/contrib/Archive/{{ name }}/{{ name }}_{{ version }}.tar.gz'
     - 'https://bioarchive.galaxyproject.org/{{ name }}_{{ version }}.tar.gz'
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name|lower }}/bioconductor-{{ name|lower }}_{{ version }}_src_all.tar.gz'
-    - 'https://bioconductor.org/packages/release/bioc/src/contrib/dupRadar_1.30.0.tar.gz'
-  md5: 25020f4fc2033e3cb25d8fbc428219a6
+  md5: 3dcbccf3dab22b82b2535991266b3f02
 build:
   number: 0
   rpaths:
     - lib/R/lib/
     - lib/
   noarch: generic
-# Suggests: BiocStyle, knitr, rmarkdown, AnnotationHub
 requirements:
   host:
-    - 'bioconductor-rsubread >=2.8.0,<2.9.0'
     - 'r-base >=4.1,<4.2'
-    - r-kernsmooth
+    - r-blockmodeling
+    - r-gplots
+    - r-testthat
   run:
-    - 'bioconductor-rsubread >=2.8.0,<2.9.0'
     - 'r-base >=4.1,<4.2'
-    - r-kernsmooth
+    - r-blockmodeling
+    - r-gplots
+    - r-testthat
 test:
   commands:
     - '$R -e "library(''{{ name }}'')"'
 about:
   home: 'https://bioconductor.org/packages/{{ bioc }}/bioc/html/{{ name }}.html'
-  license: GPL-3
-  summary: 'Assessment of duplication rates in RNA-Seq datasets'
-  description: 'Duplication rate quality control for RNA-Seq datasets.'
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license: Artistic-2.0
+  summary: 'An R package for gene and isoform differential expression analysis of RNA-seq data'
+  description: 'Differential Expression analysis at both gene and isoform level using RNA-seq data'
 extra:
   identifiers:
-    - biotools:dupradar
+    - biotools:ebseq
+    - doi:10.1093/bioinformatics/btt087
   parent_recipe:
-    name: bioconductor-dupradar
-    path: recipes/bioconductor-dupradar
-    version: 1.10.0
+    name: bioconductor-ebseq
+    path: recipes/bioconductor-ebseq
+    version: 1.20.0
 

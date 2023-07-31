@@ -1,0 +1,13 @@
+diff --git a/kent/src/hg/lib/jksql.c b/kent/src/hg/lib/jksql.c
+index dace78f..02f96a8 100644
+--- a/kent/src/hg/lib/jksql.c
++++ b/kent/src/hg/lib/jksql.c
+@@ -1107,7 +1107,7 @@ mysql_options(conn, MYSQL_OPT_LOCAL_INFILE, NULL);
+ // If turned on this can defeat Man-In-The-Middle attacks.
+ if (sp->verifyServerCert && !sameString(sp->verifyServerCert,"0"))
+     {
+-    my_bool flag = TRUE;
++    bool flag = TRUE;
+     mysql_options(conn, MYSQL_OPT_SSL_VERIFY_SERVER_CERT, &flag);
+     }
+ 
