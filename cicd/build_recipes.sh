@@ -29,7 +29,7 @@ do
 done
 
 # create key at https://anaconda.org/<user>/settings/access and put in the env_variable ANACONDA_API_TOKEN
-find ~/anaconda3/conda-bld/ -iname '*.tar.bz2' | while read line
+find ~/anaconda3/conda-bld/ -iname '*.tar.bz2' | grep -v 'src_cache' | while read line
 do
     ~/anaconda3/bin/anaconda upload --user seqera --force "$line"
 done
