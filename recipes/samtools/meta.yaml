@@ -40,3 +40,4 @@ extra:
   identifiers:
     - biotools:samtools
     - usegalaxy-eu:samtools_flagstat
+
