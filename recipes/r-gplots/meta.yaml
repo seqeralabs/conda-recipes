@@ -1,0 +1,48 @@
+# This file created by conda-build 2.0.7
+# meta.yaml template originally from:
+# /opt/recipe, last modified Sun Jun  4 15:10:58 2017
+# ------------------------------------------------
+
+package:
+    name: r-gplots
+    version: 2.17.0
+source:
+    fn: gplots_2.17.0.tar.gz
+    url:
+        - http://cran.r-project.org/src/contrib/Archive/gplots/gplots_2.17.0.tar.gz
+build:
+    rpaths:
+        - lib/R/lib/
+        - lib/
+requirements:
+    build:
+        - 'r-base >=4.1,<4.2'
+        - r-kernsmooth
+        - r-catools
+        - r-gdata
+        - r-gtools
+    run:
+        - 'r-base >=4.1,<4.2'
+        - r-kernsmooth
+        - r-catools
+        - r-gdata
+        - r-gtools
+test:
+    commands:
+        - $R -e "library('gplots')"
+about:
+    license: GPL-2
+    summary: 'Various R programming tools for plotting data, including: - calculating
+        and plotting locally smoothed summary functionals (''bandplot'', ''wapply''),
+        - enhanced versions of standard plots (''barplot2'', ''boxplot2'', ''heatmap.2'',
+        ''smartlegend''), - manipulating colors (''col2hex'', ''colorpanel'', ''redgreen'',
+        ''greenred'', ''bluered'', ''redblue'', ''rich.colors''), - calculating and
+        plotting two-dimensional data summaries (''ci2d'', ''hist2d''), - enhanced
+        regression diagnostic plots (''lmplot2'', ''residplot''), - formula-enabled
+        interface to stats::lowess function (''lowess''), - displaying textual data
+        in plots (''textplot'', ''sinkplot''), - plotting a matrix where each cell
+        contains a dot whose size reflects the relative magnitude of the elements
+        (''balloonplot''), - plotting Venn diagrams (''venn''), - displaying Open-Office
+        style plots (''ooplot''), - plotting multiple data sets on same region, with
+        separate axes (''overplot''), - plotting means and confidence intervals (''plotCI'',
+        ''plotmeans''), - spacing points in an x-y plot so they don''t overlap (''space'').'
