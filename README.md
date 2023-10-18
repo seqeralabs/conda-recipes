@@ -1,4 +1,4 @@
-# Conda recipes arm64
+# Conda recipes for ARM64
 
 This project is a collection of [Conda](https://docs.conda.io/en/latest/) recipes optimized for `arm64` CPU architecture, for tools mostly used by [**nf-core**](https://nf-co.re/) pipelines.
 
