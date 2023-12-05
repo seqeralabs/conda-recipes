@@ -1,24 +1,29 @@
-{% set version="1.9.0" %}
+{% set version="1.10.2" %}
 
 package:
   name: salmon
   version: {{ version }}
 
 build:
-  number: 1
+  number: 0
 
 source:
   url: https://github.com/COMBINE-lab/salmon/archive/v{{ version }}.tar.gz
-  sha256: 450d953a5c43fe63fd745733f478d3fbaf24d926cb52731fd38ee21c4990d613
-
+  sha256: 976989182160fef3afb4429ee8b85d8dd39ed6ca212bb14d6a65cde0e985fb98
+  patches:
+    - fixbzip2.patch
 
 requirements:
   build:
     - autoconf
-    - cmake
+    - cmake >=3.15
     - make
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+    - libcurl
+    - pkg-config
+    - staden_io_lib =1.14.15
+
   host:
     - boost-cpp
     - icu 
@@ -28,6 +33,8 @@ requirements:
     - jemalloc >=5.1.0
     - tbb-devel >=2021.4.0
   run:
+    - bzip2
+    - zlib
     - boost-cpp
     - tbb >=2021.4.0
 
