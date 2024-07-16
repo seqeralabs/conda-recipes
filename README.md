@@ -4,6 +4,9 @@ This project is a collection of [Conda](https://docs.conda.io/en/latest/) recipe
 
 Those recipes are made publicly available through [Seqera channel](https://anaconda.org/seqera) on Anaconda.org.
 
+>[!NOTE]
+> This project is archived since Bioconda is now building for ARM64 and Mac Silicon. Read more [here](https://github.com/bioconda/bioconda-recipes/issues/33333#issuecomment-2221176852).
+
 ## Environment setup for building packages
 
 1. Start and login to an EC2 Graviton instance (ie. c6g.large)
