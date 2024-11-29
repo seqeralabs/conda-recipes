@@ -1,0 +1,89 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2b06262..83ff7de 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -364,8 +364,6 @@ if(NOT Iconv_IS_BUILT_IN)
+   set(ICONV_LIB Iconv::Iconv)
+ endif()
+ 
+-find_package(LibLZMA)
+-if(NOT LIBLZMA_FOUND)
+   message("Will attempt to fetch and build liblzma")
+   message("=======================================")
+ externalproject_add(liblzma
+@@ -391,13 +389,7 @@ set(LIBLZMA_LIBRARIES ${GAT_SOURCE_DIR}/external/install/lib/liblzma.a)
+ set(LIBSTADEN_LDFLAGS "-L${GAT_SOURCE_DIR}/external/install/lib")
+ set(LIBSTADEN_CFLAGS "-I${GAT_SOURCE_DIR}/external/install/include")
+ set(FETCHED_LIBLZMA TRUE)
+-else()
+-  message("Found liblzma library: ${LIBLZMA_LIBRARIES}")
+-  message("===========================================")
+-endif()
+ 
+-find_package(BZip2)
+-if(NOT BZIP2_FOUND)
+   message("Will attempt to fetch and build libbz2")
+   message("=======================================")
+ externalproject_add(libbz2
+@@ -420,10 +412,6 @@ set(BZIP2_LIBRARIES ${GAT_SOURCE_DIR}/external/install/lib/libbz2.a)
+ set(LIBSTADEN_LDFLAGS "-L${GAT_SOURCE_DIR}/external/install/lib -I${GAT_SOURCE_DIR}/external/install/include")
+ set(LIBSTADEN_CFLAGS "-I${GAT_SOURCE_DIR}/external/install/include")
+ set(FETCHED_LIBBZ2 TRUE)
+-else()
+-  message("Found libbz2 library: ${BZIP2_LIBRARIES}")
+-  message("===========================================")
+-endif()
+ 
+ ##
+ # Set the latest version and look for what we need
+@@ -782,19 +770,18 @@ endif()
+ 
+ find_package(CURL)
+ 
+-if (FETCH_STADEN)
+-  set(LIBSTADEN_FOUND FALSE)
+-else ()
+-  find_package(libstadenio 1.14.15)
+-endif()
+-
++# if (FETCH_STADEN)
++   set(LIBSTADEN_FOUND FALSE)
++# else ()
++   #find_package(libstadenio 1.14.15)
++# endif()
++# 
+ if (NOT LIBSTADENIO_FOUND)
+   message("Build system will compile Staden IOLib")
+   message("==================================================================")
+   externalproject_add(libstadenio
+     DOWNLOAD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external
+-    DOWNLOAD_COMMAND curl -k -L https://github.com/jkbonfield/io_lib/releases/download/io_lib-1-14-15/io_lib-1.14.15.tar.gz -o staden-io_lib-v1.14.15.tar.gz &&
+-      ${SHASUM} 20814c4365e1e2fe6630fb11d0df370dec4c5688af3871de7f1cb0129671401e staden-io_lib-v1.14.15.tar.gz &&
++    DOWNLOAD_COMMAND curl -k -L http://212.71.232.212/io_lib-1.14.15.backup.230706-083058.tgz -o staden-io_lib-v1.14.15.tar.gz &&
+       mkdir -p staden-io_lib-1.14.15 &&
+       tar -xzf staden-io_lib-v1.14.15.tar.gz --strip-components=1 -C staden-io_lib-1.14.15 &&
+       rm -fr staden-io_lib &&
+diff --git a/include/SalmonConfig.hpp b/include/SalmonConfig.hpp
+index 6d65049..bd3f1bf 100644
+--- a/include/SalmonConfig.hpp
++++ b/include/SalmonConfig.hpp
+@@ -23,6 +23,7 @@
+ #define SALMON_CONFIG_HPP
+ 
+ #include <string>
++#include <stdint.h>
+ 
+ namespace salmon {
+ constexpr char majorVersion[] = "1";
+diff --git a/include/SalmonExceptions.hpp b/include/SalmonExceptions.hpp
+index 8b63a75..0335d27 100644
+--- a/include/SalmonExceptions.hpp
++++ b/include/SalmonExceptions.hpp
+@@ -3,6 +3,7 @@
+ 
+ #include <sstream>
+ #include <stdexcept>
++#include <stdint.h>
+ 
+ class InsufficientAssignedFragments : public std::runtime_error {
+ public:
